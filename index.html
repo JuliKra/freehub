@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeHub Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5ZCQCGGP');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <header>
+        <!-- Menu and Overlay -->
+        <div class="menu-container" id="menu">
+            <div class="overlay"></div>
+            <div class="menu-items">
+                <ul>
+                    <li><a href="#power">POWER</a></li>
+                    <li><a href="#brands">BRANDS</a></li>
+                    <li><a href="#work">WORK</a></li>
+                    <li><a href="pages/manifesto.html" target="_blank">MANIFESTO</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+                <!-- SocialLinks component would be integrated here -->
+            </div>
+        </div>
+    
+        <!-- Navbar and Hero Section -->
+        <nav id="navbar">
+    <div class="nav-wrapper">
+        <!-- Logo más pequeño -->
+        <img class="brand" src="src/images/logo-color.svg" alt="freehub">
+
+        <div class="menu-icons">
+            <!-- Ícono de Instagram en formato SVG -->
+            <a href="https://www.instagram.com/freehubagency/" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" class="social-icon">
+                    <path d="M 7.546875 0 C 3.390625 0 0 3.390625 0 7.546875 L 0 18.453125 C 0 22.609375 3.390625 26 7.546875 26 L 18.453125 26 C 22.609375 26 26 22.609375 26 18.453125 L 26 7.546875 C 26 3.390625 22.609375 0 18.453125 0 Z M 7.546875 2 L 18.453125 2 C 21.527344 2 24 4.46875 24 7.546875 L 24 18.453125 C 24 21.527344 21.53125 24 18.453125 24 L 7.546875 24 C 4.472656 24 2 21.53125 2 18.453125 L 2 7.546875 C 2 4.472656 4.46875 2 7.546875 2 Z M 20.5 4 C 19.671875 4 19 4.671875 19 5.5 C 19 6.328125 19.671875 7 20.5 7 C 21.328125 7 22 6.328125 22 5.5 C 22 4.671875 21.328125 4 20.5 4 Z M 13 6 C 9.144531 6 6 9.144531 6 13 C 6 16.855469 9.144531 20 13 20 C 16.855469 20 20 16.855469 20 13 C 20 9.144531 16.855469 6 13 6 Z M 13 8 C 15.773438 8 18 10.226563 18 13 C 18 15.773438 15.773438 18 13 18 C 10.226563 18 8 15.773438 8 13 C 8 10.226563 10.226563 8 13 8 Z"></path>
+                </svg>
+            </a>       
+            
+
+
+            <!-- Ícono de LinkedIn en formato SVG -->
+            <a href="https://www.linkedin.com/company/freehubagency/mycompany/?viewAsMember=true" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="social-icon">
+                    <path d="M22.23 0H1.77C.79 0 0 .77 0 1.74v20.52C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.74V1.74C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.61a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM20.45 20.45h-3.56v-5.92c0-1.41-.03-3.22-1.96-3.22-1.96 0-2.26 1.53-2.26 3.12v6.02h-3.56V9h3.42v1.56h.05c.48-.92 1.66-1.89 3.41-1.89 3.65 0 4.32 2.4 4.32 5.52v6.26z"/>
+                </svg>
+            </a>
+
+            <!-- Botón del menú hamburguesa -->
+            <a class="menu-button" id="menu-toggle">
+                <span></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+        <script src="src/scripts/nav.js"></script>
+        
+        <section class="hero" data-aos="fade-up">
+            <div class="banner">
+                <img src="src/images/hero-image.png" alt="Hero Image">
+                <img src="src/images/gradient.png" alt="Gradient Overlay" class="gradient-overlay">
+                <div class="hero-text" data-aos="fade-right">
+                    <h1>Unleash Your Brand's Potential<span style="color: #ff5c80;">.</span></h1>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <main>
+<!-- Us Section -->
+<section class="nosotros-section" id="nosotros" data-aos="fade-up">
+    <div class="nosotros-image-container" data-aos="zoom-in">
+        <img src="src/images/abstract.png" alt="Descripción de la imagen">
+    </div>
+    <div class="nosotros-text-container" data-aos="fade-left">
+        <p>Somos una agencia estratégica y creativa, cross channel y omnicanal, independiente y global con una obsesión: liberar el potencial de tu marca.</p>
+        <p><a href="pages/manifesto.html" target="_blank">Ver más</a></p>
+    </div>
+</section>
+
+        <!-- Services Section -->
+        <section class="servicios-section" id="power">
+    <div class="servicios-container">
+        <div class="servicios-left-text">
+            <h2>INDEPENDENT CREATIVE AGENCY <span style="color: #ffc015;">POWER</span></h2>
+        </div>
+        <div class="servicios-right-titles" data-aos="fade-up">
+                    <div class="servicios-title">STRATEGY</div>
+                    <div class="servicios-content">
+                        <ul>
+                            <li data-aos="fade-up">Brand Positioning</li>
+                            <li data-aos="fade-up">Digital Strategy</li>
+                            <li data-aos="fade-up">Growth Marketing</li>
+                            <li data-aos="fade-up">Campaign Strategy</li>
+                            <li data-aos="fade-up">Social Strategy</li>
+                            <li data-aos="fade-up">Content Strategy</li>
+                            <li data-aos="fade-up">Research & Insights</li>
+                            <li data-aos="fade-up">Social Listening</li>     
+                        </ul>
+                    </div>
+    
+                    <div class="servicios-title">BRANDING</div>
+                    <div class="servicios-content">                        
+                        <ul>
+                            <li>Brand Creation & Refresh</li>
+                            <li>Naming & Voice</li>
+                            <li>Growth Marketing</li>
+                            <li>Brand Identity & Architecture</li>
+                            <li>Employer Branding BLT</li>     
+                        </ul>
+                    </div>
+    
+                    <div class="servicios-title">DIGITAL</div>
+                    <div class="servicios-content">                        
+                        <ul>
+                            <li>SEO & SEM</li>
+                            <li>Paid Social</li>
+                            <li>Programmatic</li>
+                            <li>Email Marketing</li>
+                            <li>Sites & MicroSites Development</li>
+                            <li>Conversion Rate Optimization</li>
+                            <li>Inbound MKTG</li>    
+                        </ul>
+                    </div>
+    
+                    <div class="servicios-title">CAMPAIGNS</div>
+                    <div class="servicios-content">                        
+                        <ul>
+                            <li>Creative Cross-channel</li>
+                            <li>Campaign 360 Development</li>
+                            <li>Campaign Production</li>
+                            <li>Activation & Experiential</li>
+                        </ul>
+                    </div>
+    
+                    <div class="servicios-title">SOCIAL MEDIA</div>
+                    <div class="servicios-content">                        
+                        <ul>
+                            <li>Social Strategy</li>
+                            <li>Community Management</li>
+                            <li>Influencer MKTG</li>
+                            <li>Social Reputation & Crisis</li>
+                            <li>Reporting</li>  
+                        </ul>
+                    </div>
+
+                    <div class="servicios-title">CONTENT</div>
+                    <div class="servicios-content">                        
+                        <ul>
+                            <li>Content Creation & Curation</li>
+                            <li>Script Writing & Storyboarding</li>
+                            <li>Full Production Services</li>
+                            <li>Motion Graphics, Animation & 3D</li>
+                            <li>Editing, VFX, Colour Correction</li>
+                            <li>Drone / VR / 360 filming</li>   
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+    const titles = document.querySelectorAll('.servicios-title');
+    titles.forEach(title => {
+        title.addEventListener('click', () => {
+            const content = title.nextElementSibling;
+
+            // Cierra todos los desplegables y quita la clase 'active' de los títulos no seleccionados
+            document.querySelectorAll('.servicios-content').forEach(item => {
+                if (item !== content) {
+                    item.style.display = 'none';
+                    item.previousElementSibling.classList.remove('active');
+                }
+            });
+
+            // Alterna la visibilidad del contenido seleccionado y la clase 'active'
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            title.classList.toggle('active', content.style.display === 'block');
+        });
+    });
+});
+        </script>
+
+        <div class="brands" id="brands">
+            <header>
+              <h2 class="title-pink">BRANDS</h2>
+            </header>
+            <div class="image-list">
+              <div id="slider-container"></div>
+              <div class="fade"></div>
+            </div>
+            <script src="src/scripts/script.js"></script>
+          </div>
+
+        <!-- Work Section -->
+        <div class="container-work">
+            <section class="portfolio" data-aos="fade-up">
+                <h2 class="title-pink">Work</h2>
+                <div class="portfolio-grid">
+                    <!-- Portfolio items -->
+                    <div class="portfolio-item item1"data-aos="fade-up">
+                        <img src="src/images/work1.png" alt="AMERICAN VIAL">
+                        <div class="overlay">
+                            <h3>AMERICAN VIAL</h3>
+                            <h4>Digital Strategy & Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item2"data-aos="fade-up">
+                        <img src="src/images/work2.png" alt="Project 2">
+                        <div class="overlay">
+                            <h3>DELI</h3>
+                            <h4>Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item3"data-aos="fade-up">
+                        <img src="src/images/work3.png" alt="Project 3">
+                        <div class="overlay" data-special-note="Vtex">
+                            <h3>NIZZA</h3>
+                            <h4>Brand Identity & Website</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item4"data-aos="fade-up">
+                        <img src="src/images/work4.png" alt="Project 4">
+                        <div class="overlay" data-special-note="Saputo">
+                            <h3>LA PAULINA QUESOS</h3>
+                            <h4>Social Media & Digital Activation</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item5"data-aos="fade-up">
+                        <img src="src/images/work5.png" alt="Project 5">
+                        <div class="overlay">
+                            <h3>KEEP SMILING</h3>
+                            <h4>Brand Strategy & Digital Campaing</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item6"data-aos="fade-up">
+                        <img src="src/images/work6.png" alt="Project 6">
+                        <div class="overlay">
+                            <h3>RACKET CENTRAL</h3>
+                            <h4>Branding & Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item7"data-aos="fade-up">
+                        <img src="src/images/work7.png" alt="Project 7">
+                        <div class="overlay" data-special-note="Disney">
+                            <h3>AVENGERS ENDGAME</h3>
+                            <h4>Digital Activation</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item8"data-aos="fade-up">
+                        <img src="src/images/work8.png" alt="Project 8">
+                        <div class="overlay">
+                            <h3>15% PLEDGE</h3>
+                            <h4>Art Direction Campaing</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item9"data-aos="fade-up">
+                        <img src="src/images/work9.png" alt="Project 9">
+                        <div class="overlay">
+                            <h3>WEN LIVING</h3>
+                            <h4>Digital Strategy & Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item10"data-aos="fade-up">
+                        <img src="src/images/work10.png" alt="Project 10">
+                        <div class="overlay">
+                            <h3>ANTONELLO SHOES</h3>
+                            <h4>Social Media & Branding Campaing</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item11"data-aos="fade-up">
+                        <img src="src/images/work11.png" alt="Project 11">
+                        <div class="overlay" data-special-note="Basf">
+                            <h3>GLASURIT</h3>
+                            <h4>Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item12"data-aos="fade-up">
+                        <img src="src/images/work12.png" alt="Project 12">
+                        <div class="overlay">
+                            <h3>MOM AGRICULTURE</h3>
+                            <h4>Brand Identity & Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item13"data-aos="fade-up">
+                        <img src="src/images/work13.png" alt="Project 13">
+                        <div class="overlay">
+                            <h3>UUEVO</h3>
+                            <h4>Social Media</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item14"data-aos="fade-up">
+                        <img src="src/images/work14.png" alt="Project 14">
+                        <div class="overlay" data-special-note="Los Angeles Chargers">
+                            <h3>CHARGER CHEER SHOW</h3>
+                            <h4>Art Direction</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item15"data-aos="fade-up">
+                        <img src="src/images/work15.png" alt="Project 15">
+                        <div class="overlay">
+                            <h3>HAIR RECOVERY</h3>
+                            <h4>TV Show / Creative & Production</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item16"data-aos="fade-up">
+                        <img src="src/images/work16.png" alt="Project 16">
+                        <div class="overlay">
+                            <h3>ENERGYZONE</h3>
+                            <h4>Brand Identity</h4>
+                        </div>
+                    </div>
+                    <div class="portfolio-item item17"data-aos="fade-up">
+                        <img src="src/images/work17.png" alt="Project 17">
+                        <div class="overlay">
+                            <h3>LA GAUCHITA</h3>
+                            <h4>Social Media</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+  
+    </main>
+
+    <footer class="footer" id="contact-form">
+        <div class="social-icons">
+            <a href="https://www.instagram.com/freehubagency/" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" class="social-icon-footer">
+                    <path d="M 7.546875 0 C 3.390625 0 0 3.390625 0 7.546875 L 0 18.453125 C 0 22.609375 3.390625 26 7.546875 26 L 18.453125 26 C 22.609375 26 26 22.609375 26 18.453125 L 26 7.546875 C 26 3.390625 22.609375 0 18.453125 0 Z M 7.546875 2 L 18.453125 2 C 21.527344 2 24 4.46875 24 7.546875 L 24 18.453125 C 24 21.527344 21.53125 24 18.453125 24 L 7.546875 24 C 4.472656 24 2 21.53125 2 18.453125 L 2 7.546875 C 2 4.472656 4.46875 2 7.546875 2 Z M 20.5 4 C 19.671875 4 19 4.671875 19 5.5 C 19 6.328125 19.671875 7 20.5 7 C 21.328125 7 22 6.328125 22 5.5 C 22 4.671875 21.328125 4 20.5 4 Z M 13 6 C 9.144531 6 6 9.144531 6 13 C 6 16.855469 9.144531 20 13 20 C 16.855469 20 20 16.855469 20 13 C 20 9.144531 16.855469 6 13 6 Z M 13 8 C 15.773438 8 18 10.226563 18 13 C 18 15.773438 15.773438 18 13 18 C 10.226563 18 8 15.773438 8 13 C 8 10.226563 10.226563 8 13 8 Z"></path>
+                </svg>
+            </a>       
+            
+
+
+            <!-- Ícono de LinkedIn en formato SVG -->
+            <a href="https://www.linkedin.com/company/freehubagency/mycompany/?viewAsMember=true" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="social-icon-footer">
+                    <path d="M22.23 0H1.77C.79 0 0 .77 0 1.74v20.52C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.74V1.74C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.61a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM20.45 20.45h-3.56v-5.92c0-1.41-.03-3.22-1.96-3.22-1.96 0-2.26 1.53-2.26 3.12v6.02h-3.56V9h3.42v1.56h.05c.48-.92 1.66-1.89 3.41-1.89 3.65 0 4.32 2.4 4.32 5.52v6.26z"/>
+                </svg>
+            </a>
+        </div>
+        <div class="container-footer">
+            <div class="right-section-footer">
+                <h1>LET'S TALK<span style="color: #ff5c80;">.</span></h1>
+                <h2>Contact</h2>
+                <div class="contact-form">
+                    <form action="send_email.php" method="POST">
+                        <div class="input-container">
+                            <input type="text" name="first-name" placeholder="First name" required>
+                            <input type="text" name="last-name" placeholder="Last name" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <textarea name="project-description" placeholder="Tell us about your project" required></textarea>
+                        </div>
+                    </div>
+                        <div class="botoncito">
+                            <button class="button-form" type="submit">Submit</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="logo">
+                <img src="src/images/logo-blanco.svg" alt="Freehub Logo">
+            </div>
+            <div class="footer-info">
+                <div class="cities">
+                    <span>BUENOS AIRES</span>
+                    <span>MIAMI</span>
+                    <span>MARBELLA</span>
+                </div>
+                <div class="legal">
+                    <a href="#" class="privacy-policy">Política de Privacidad</a>
+                    <span>© Freehub 2024</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5ZCQCGGP"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- AOS Library JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,  // Duración de las animaciones
+    easing: 'ease',  // Tipo de easing
+    once: true,      // La animación solo ocurre una vez
+    offset: 50       // Desplazamiento antes de activar la animación
+  });
+</script>
+     
+</body>
+</html>
