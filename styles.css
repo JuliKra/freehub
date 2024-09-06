@@ -125,7 +125,9 @@ ul{
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  z-index: -1;
+  z-index: -1; /* El menú debe estar por debajo de la página inicialmente */
+  opacity: 0; /* Ocultar el menú inicialmente */
+  transition: opacity 300ms ease, z-index 300ms ease;
 }
 
 .menu-container::before,
@@ -137,27 +139,15 @@ ul{
   z-index: -1;
 }
 
-.menu-container.deactive {
-  animation: fade-out 600ms forwards;
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    z-index: 999;
-  }
-  50% {
-    opacity: 1;
-    z-index: 999;
-  }
-  100% {
-    opacity: 0;
-    z-index: -1;
-  }
-}
-
 .menu-container.active {
-  animation: fade-in 300ms forwards;
+  z-index: 999; /* Traer el menú al frente cuando esté activo */
+  opacity: 1;
+}
+
+.menu-container.deactive {
+  opacity: 0; /* Menú oculto */
+  z-index: -1; /* Mantener el menú por debajo cuando no esté activo */
+  transition: opacity 300ms ease, z-index 300ms ease; /* Transiciones suaves */
 }
 
 @keyframes fade-in {
