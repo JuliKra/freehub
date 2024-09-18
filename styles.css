@@ -1,0 +1,1128 @@
+@font-face {
+    font-family: 'montserrat';
+    src: url(src/fonts/Montserrat-Bold.ttf);
+    font-weight: bold;
+    font-style: bold;
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url(src/fonts/Montserrat-Italic.ttf);
+  font-weight: italic;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url(src/fonts/Montserrat-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "BebasNeue-Bold";
+    src: url(src/fonts/BebasNeue-Bold.woff) format("woff"),;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Bebas-Regular";
+    src: url(src/fonts/Bebas-Regular.woff) format("woff"),;
+    font-display: swap;
+}
+
+/* Container for the entire project */
+.container {
+    width: calc(100% - 10%); /* Más margen a los costados */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0; /* Sin padding interno */
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "montserrat";
+    color: #000;
+    line-height: 1.6;
+}
+
+ul{
+    list-style: none;
+}
+
+.title-pink{
+    color: #ff5c80;
+    font-size: 3em;
+    text-align: left;
+    padding-bottom: 1%;
+    font-family: "BebasNeue-Bold", sans-serif;
+}
+
+/* Navbar */
+/* Overlay styles */
+.menu-container > .overlay,
+.menu-container.active > .overlay {
+  position: absolute;
+  right: 0;
+  height: calc(100vh - 120px);
+  width: calc(100vw - 120px);
+  background: #fafafa;
+}
+
+.menu-container.active > .overlay {
+  animation: overlay-slide-in 300ms forwards 300ms;
+}
+
+@keyframes overlay-slide-in {
+  from {
+    width: calc(100vw - 120px);
+  }
+  to {
+    width: 0;
+  }
+}
+
+.menu-container > .overlay {
+  animation: overlay-slide-out 300ms forwards;
+}
+
+@keyframes overlay-slide-out {
+  from {
+    left: 0;
+    width: 0;
+  }
+  to {
+    left: 0;
+    width: calc(100vw - 120px);
+  }
+}
+
+/* Menu Container styles */
+.menu-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: #ff5c80;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: -1; /* El menú debe estar por debajo de la página inicialmente */
+  opacity: 0; /* Ocultar el menú inicialmente */
+  transition: opacity 300ms ease, z-index 300ms ease;
+}
+
+.menu-container::before,
+.menu-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+.menu-container.active {
+  z-index: 999; /* Traer el menú al frente cuando esté activo */
+  opacity: 1;
+}
+
+.menu-container.deactive {
+  opacity: 0; /* Menú oculto */
+  z-index: -1; /* Mantener el menú por debajo cuando no esté activo */
+  transition: opacity 300ms ease, z-index 300ms ease; /* Transiciones suaves */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    z-index: -1;
+  }
+  to {
+    opacity: 1;
+    z-index: 999;
+  }
+}
+
+/* Menu Items styles */
+.menu-container ul,
+.menu-container .social {
+  margin-left: -80px;
+  opacity: 0;
+  animation: slide-out 200ms forwards;
+}
+
+.menu-container ul {
+  list-style-type: none !important;
+  font-size: 3rem;
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    margin-left: 0px;
+  }
+  to {
+    opacity: 0;
+    margin-left: -80px;
+  }
+}
+
+.menu-container.active ul,
+.menu-container.active .social {
+  animation: slide-in 300ms forwards 600ms;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    margin-left: -80px;
+  }
+  to {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+/* Menu Items: Hover Animation */
+.menu-container ul li {
+  border-left: .2rem solid transparent;
+  transition: border-left 200ms;
+}
+
+.menu-container ul li a {
+  font-size: 7rem; 
+  padding-left: .5rem;
+  text-decoration: none;
+  font-family: 'montserrat';
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  line-height: 1;
+}
+
+.menu-container ul li a::after {
+  content: ' »';
+  font-size: 2.5rem;
+  color: transparent;
+  transition: color 200ms;
+}
+
+.menu-container ul li a:hover::after {
+  content: ' »';
+  color: #ffc015;
+}
+
+.social {
+  padding: 1rem 0 0 .5rem;
+}
+
+.social a {
+  font-size: 1.5rem;
+  padding: .2rem;
+}
+
+.menu-container a,
+.menu-container a:visited {
+  color: #fafafa;
+}
+
+.menu-container a:hover,
+.menu-container a:active {
+  color: #ffc015;
+}
+
+@media only screen and (max-width: 649px) {
+  .menu-container {
+    border: none;
+  }
+
+  .menu-container > .overlay,
+  .menu-container.active > .overlay {
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .menu-container.active > .overlay {
+    animation: overlay-slide-in 300ms forwards 300ms;
+  }
+  
+  @keyframes overlay-slide-in {
+    from {
+      width: 100vw;
+    }
+    to {
+      width: 0;
+    }
+  }
+  
+  .menu-container > .overlay {
+    animation: overlay-slide-out 300ms forwards;
+  }
+  
+  @keyframes overlay-slide-out {
+    from {
+      left: 0;
+      width: 0;
+    }
+    to {
+      left: 0;
+      width: 100vw;
+    }
+  }
+}
+
+/* Navbar styles */
+#navbar {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: background-color 300ms ease;
+}
+
+.menu-container.active ~ #navbar {
+    background-color: #ff5c80;
+}
+
+#navbar .brand {
+    filter: none; /* Sin filtro para mantener el color original */
+    transition: filter 300ms ease;
+    width: 120px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+}
+
+.menu-container.active ~ #navbar .brand {
+    filter: brightness(0) invert(1); /* Cambia el color a blanco */
+}
+
+#navbar.bg-active {
+  background: #000000;
+}
+
+#navbar .nav-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar .brand {
+  font-size: 1.6rem;
+  color: #fafafa;
+  cursor: default;
+}
+
+.menu-icons {
+    display: flex;
+}
+
+.social-icon {
+    width: 18px; /* Ajusta el tamaño del ícono */
+    height: 18px;
+    margin-left: 25px; /* Espacio entre los íconos y el menú hamburguesa */
+    fill: black; /* Color por defecto */
+    transition: fill 300ms ease;
+  }
+
+  .menu-container.active ~ #navbar .social-icon {
+    fill: white; /* Cambiar color de los íconos a blanco */
+  }
+
+/* Menu Button styles */
+.menu-button {
+  position: relative;
+  height: 18px;
+  width: 20px;
+  outline: none;
+  margin-left: 25px;
+}
+
+.menu-button span,
+.menu-button span::before,
+.menu-button span::after {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 3px;
+  background: black;
+  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.menu-button span {
+  position: relative;
+  display: block;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+
+.menu-button span::before {
+  top: -8px;
+}
+
+.menu-button span::after {
+  top: 8px;
+}
+
+/*.menu-button:hover > span,
+.menu-button:hover > span::before,
+.menu-button:hover > span::after {
+  background: #ffffff;
+} */
+
+
+.menu-button.active > span {
+  background: transparent;
+  
+}
+
+.menu-button.active > span::before {
+  transform: rotate(-225deg);
+  top: 0px;
+  background: #ffffff;
+}
+
+.menu-button.active > span::after {
+  transform: rotate(225deg);
+  top: 0px;
+  background: #ffffff;
+}
+
+
+
+.hero-nosotros {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.banner{
+  width: 90%;
+  margin: 0 auto;
+
+}
+
+/* Hero section inside the same container */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  width: 40%;
+  height: auto;
+  z-index: 2; /* Degradado por encima del texto de 'Nosotros' */
+  pointer-events: none;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  text-align: right;
+  width: 40%;
+  color: white;
+  z-index: 3; /* El texto está por encima del degradado */
+}
+
+.hero-text h1 {
+  font-size: 140px;
+  font-family: "BebasNeue-Bold";
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  line-height: 0.9;
+}
+
+@media (max-width: 1950px) and (min-width: 1800px) {
+  .hero-text h1 {
+    font-size: 110px;
+  }
+}
+
+@media (max-width: 1800px) and (min-width: 1550px) {
+  .hero-text h1 {
+    font-size: 95px;
+  }
+}
+
+@media (max-width: 1550px) and (min-width: 1450px) {
+  .hero-text h1 {
+    font-size: 85px;
+  }
+}
+
+@media (max-width: 1450px) and (min-width: 1250px) {
+  .hero-text h1 {
+    font-size: 75px;
+  }
+}
+
+@media (max-width: 1250px) and (min-width: 1024px) {
+  .hero-text h1 {
+    font-size: 65px;
+  }
+}
+
+/* Para tablets (pantallas entre 768px y 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 75px;
+  }
+
+  .hero-text{
+    width: 60%;
+  }
+  
+  .gradient-overlay {
+    display: none; /* Elimina el degradado en tablets */
+  }
+}
+
+/* Para móviles (pantallas de 768px o menos) */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 60px; /* Ajuste del tamaño del título */
+  }
+  .gradient-overlay {
+    display: none; /* Elimina el degradado en móviles */
+  }
+
+  /* Alineación centrada del texto */
+  .hero-text {
+    text-align: center;
+    padding: 0;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .hero-text h1 {
+    line-height: 1.1; /* Ajuste del espaciado en móviles */
+  }
+}
+
+/* Nosotros content within the same container */
+.nosotros-section {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1% 0;
+}
+
+.nosotros-image-container {
+  position: relative;
+  margin-top: -91px;
+  margin-bottom: -63px;
+  margin-left: 10%;
+  max-width: 50%;
+  z-index: 5; /* La imagen de 'Nosotros' está por encima de todo */
+}
+
+.nosotros-image-container img {
+    width: 70%;  /* Mantiene la imagen dentro del contenedor */
+    height: auto;
+}
+
+.nosotros-text-container {
+  z-index: 1;
+  margin-left: 20px;
+  width: 60%;
+}
+
+.nosotros-text-container p {
+    font-size: 1.5em;
+    line-height: 2;
+    margin-bottom: 10px;  /* Espacio entre el texto y el enlace */
+    color: #ba17ff;
+    width: 70%;
+    font-family: 'montserrat';
+    font-weight: normal;
+    z-index: 2; /* La caja de texto de 'Nosotros' debajo del degradado */
+}
+
+.nosotros-text-container p:last-child {
+    margin-top: 20px;  /* Separación adicional entre el texto y el enlace */
+}
+
+.nosotros-text-container a {
+    color: #ff5c80;
+    text-decoration: none;
+    font-family: 'montserrat';
+    font-weight: normal;
+}
+
+.nosotros-text-container a:hover {
+    text-decoration: underline;
+}
+
+/* Services Section */
+.servicios-section {
+  padding: 5%;
+  background-image: url(src/images/background-services.svg);
+  background-size: cover;
+}
+
+.servicios-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* Alinea los servicios a la parte superior */
+}
+
+.servicios-left-text {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea el título a la parte superior */
+  height: 100%;
+  padding-top: 34px;
+}
+
+.servicios-left-text h2 {
+  font-size: 8em;
+  line-height: 0.7;
+  font-family: "BebasNeue-Bold", sans-serif;
+  margin: 0; /* Elimina el margen extra */
+}
+
+.servicios-right-titles {
+  flex: 2;
+  font-size: 3em;
+  color: white;
+  font-family: 'montserrat';
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea los servicios a la parte superior */
+  padding-left: 8%; /* Añade espacio a la izquierda si es necesario */
+}
+
+.servicios-title {
+  cursor: pointer;
+  padding: 10px 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-family: 'montserrat';
+  font-weight: bold;
+  border-bottom: none;
+}
+
+.servicios-title.active {
+  border-bottom: 1px solid #ddd;
+  width: 40%;
+}
+
+.servicios-content {
+  display: none;
+  margin-top: 10px;
+  padding: 10px 0;
+  background-color: transparent;
+  font-size: 0.5em;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .servicios-container {
+      flex-direction: column;
+  }
+
+  .servicios-left-text h2 {
+      font-size: 2em;
+  }
+}
+
+/* Brands Carousel */
+.brands {
+  text-align: center;
+  padding: 4% 5%;
+  background: white;
+}
+
+.brands header{
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.image-list {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.loop-slider {
+  display: flex;
+  animation: scroll infinite linear;
+  width: 100%; /* Ancho para el efecto de loop */
+  animation-duration: var(--duration); /* Duración de la animación */
+}
+
+.brands img {
+  width: auto;  /* Mantiene el ancho original */
+  height: auto; /* Mantiene la altura original */
+  object-fit: contain; /* Asegura que la imagen se contenga dentro del contenedor */
+  margin: 1% 2%;
+  filter: grayscale(100%); /* Escala de grises inicial */
+  transition: filter 0.3s ease; /* Transición suave */
+}
+
+/* Eliminar el hover */
+.brands img:hover {
+  filter: grayscale(100%);
+}
+
+.fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, white 0%, transparent 10%, transparent 90%, white 100%);
+  pointer-events: none;
+}
+
+@keyframes scroll-left {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+      transform: translateX(-50%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+/* Portfolio Section */
+.container-work {
+    width: 100%; /* Más margen a los costados */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0 5%; /* Sin padding interno */
+    background-color: white;;
+    padding-bottom: 3%;
+}
+
+.portfolio {
+    background: white;
+    color: #fff;
+    text-align: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px; /* Mayor separación entre las tarjetas */
+}
+
+.portfolio-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 500px; /* Altura fija para todas las tarjetas */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la relación de aspecto sin cortar */
+}
+
+/* Overlay effect */
+.portfolio-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 12%;
+    padding-right: 9%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1;
+}
+
+/* Italic text above the title for specific cards */
+.portfolio-item.item3 .overlay::before,
+.portfolio-item.item4 .overlay::before,
+.portfolio-item.item7 .overlay::before,
+.portfolio-item.item11 .overlay::before,
+.portfolio-item.item14 .overlay::before {
+    content: attr(data-special-note); /* Use the data-special-note attribute for content */
+    font-family: 'montserrat';
+    font-style: italic;
+    font-size: 18pt; /* Slightly larger than the subtitle */
+    color: #000;
+    background-color: #ffda15; /* Highlight background */
+    padding: 2px 4px;
+    margin-bottom: 5px;
+    display: block;
+    border-radius: 0; /* Make the highlight more squared */
+    width: fit-content; /* Adjust width to fit text */
+    text-align: left; /* Align text to the left */
+    line-height: 1; /* Controla el espacio entre líneas */
+}
+
+/* Title */
+.portfolio-item h3 {
+  color: #000;
+  font-size: 35pt;
+  margin: 2px 0;
+  line-height: 1; /* Controla el espacio entre líneas */
+  background-color: #ffda15; /* Fondo amarillo como resaltador */
+  display: inline; /* Ajusta el fondo al texto y permite saltos de línea */
+  padding: 0 2px; /* Un poco de espacio alrededor del texto */
+  border-radius: 0; /* Bordes cuadrados */
+  text-align: left; /* Alinea el texto a la izquierda */
+  font-family: 'montserrat';
+  font-weight: bold;
+  word-break: break-word; /* Permite dividir las palabras largas */
+}
+
+/* Subtitle */
+.portfolio-item h4 {
+  color: #000;
+  line-height: 1; /* Controla el espacio entre líneas */
+  font-size: 15pt;
+  margin-top: 10px; /* Separación entre título y subtítulo */
+  background-color: #ffda15; /* Fondo amarillo como resaltador */
+  display: inline; /* Ajusta el fondo solo al texto y permite saltos de línea */
+  padding: 0 2px; /* Un poco de espacio alrededor del texto */
+  border-radius: 0; /* Bordes cuadrados */
+  text-align: left; /* Alinea el texto a la izquierda */
+  font-family: 'montserrat';
+  font-weight: normal;
+  word-break: break-word; /* Permite dividir las palabras largas */
+}
+
+/* Custom Sizes */
+.item4, .item10 {
+    grid-column: span 3; /* Ocupan todo el ancho */
+}
+
+.item6, .item11, .item14 {
+    grid-column: span 2; /* Ocupan dos columnas */
+}
+
+.item5, .item7, .item8, .item9, .item13, .item15, .item16, .item17 {
+    grid-column: span 1; /* Ocupan una columna */
+}
+
+.item2{
+    background-color: #ff5c80;
+}
+
+.item13{
+    background-color: #ffc015;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 1024px) {
+    .portfolio-item {
+        height: 308px;
+    }
+}
+
+/* Para tablets en landscape y pantallas más pequeñas (768px y abajo) */
+@media (max-width: 768px) {
+    .container {
+        width: calc(100% - 40px); /* Más margen a los costados en pantallas más pequeñas */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* Se ajusta a 2 columnas */
+        grid-gap: 20px; /* Ajusta la separación entre tarjetas */
+    }
+
+    .portfolio-item {
+        height: 250px;
+    }
+
+    .item4, .item10 {
+        grid-column: span 2; /* Ocupan dos columnas */
+    }
+
+    .item6, .item11, .item14 {
+        grid-column: span 2; /* Ocupan dos columnas */
+    }
+}
+
+/* Para dispositivos móviles (480px y abajo) */
+@media (max-width: 480px) {
+    .container {
+        width: calc(100% - 20px); /* Aún más margen en pantallas muy pequeñas */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Se ajusta a una columna */
+        grid-gap: 15px; /* Ajusta la separación entre tarjetas */
+    }
+
+    .item4, .item10, .item6, .item11, .item14 {
+        grid-column: span 1; /* Ocupan una columna */
+    }
+    
+    .portfolio-item h3 {
+        font-size: 1.2em; /* Texto más pequeño para móviles */
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px;
+    background: #ff00ff;
+    color: #fff;
+    text-align: center;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact input, .contact textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.contact button {
+    padding: 15px 30px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background-color: #8014b6;
+  color: white;
+  padding: 20px 4%;
+  position: relative;
+}
+
+/* Alinear los iconos de LinkedIn e Instagram uno al lado del otro */
+.social-icons {
+  display: flex;
+  gap: 40px; /* Espacio entre los iconos */
+  position: absolute;
+}
+
+.social-icon-footer {
+  width: 28px; /* Ajusta el tamaño del ícono */
+  height: 28px;
+  fill: rgb(255, 255, 255); /* Color por defecto */
+  transition: fill 300ms ease;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 100px auto 0;
+}
+
+.right-section-footer {
+  width: 50%;
+}
+
+.right-section-footer h1 {
+  font-size: 220px;
+  margin: 0;
+  line-height: 1;
+  font-family: "BebasNeue-Bold", sans-serif;
+}
+
+.contact-form {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  border-radius: 0; /* Bordes cuadrados */
+  margin-top: 10px; /* Espacio entre el título y el formulario */
+  width: 100%;
+}
+
+.contact-form h2 {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: black;
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input{
+  font-family: 'montserrat';
+  font-weight: normal;
+}
+
+.input-container input, .input-container textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+  color: black;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 80px;
+  font-family: 'montserrat';
+  font-weight: normal;
+}
+
+.botoncito{
+  text-align: right;
+  padding-top: 2%;
+  width: 100%;
+}
+
+.button-form {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+/* Alinear el texto del copyright y el botón de envío */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 0.8em;
+  flex-wrap: wrap; /* Permitir el ajuste de las secciones en pantallas pequeñas */
+}
+
+/* Hacer visible el logo de la empresa y posicionarlo justo encima de las ciudades */
+.logo {
+  text-align: center;
+  margin-bottom: 20px; /* Espacio para que el logo quede encima de las ciudades */
+}
+
+.logo img {
+  width: 150px; /* Tamaño del logo de la empresa */
+  height: auto;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Estilo de la sección de ciudades */
+.cities {
+  display: flex;
+  justify-content: center; /* Centrar las ciudades */
+  align-items: center;
+  gap: 15px; /* Espacio entre las ciudades */
+}
+
+.cities span {
+  margin-right: 15px;
+  font-family: "BebasNeue-Bold", sans-serif;
+  color: #ff5c80;
+  font-size: 4em;
+}
+
+.privacy-policy {
+  color: white;
+  text-decoration: none;
+  margin-left: 0; /* Alinear con el formulario */
+}
+
+.legal {
+  display: flex;
+  justify-content: flex-start; /* Alinear el texto de la política de privacidad a la izquierda */
+  width: 50%;
+}
+
+.legal span {
+  margin-left: auto; /* Alinear el copyright con el botón de submit */
+}
+
+/* Manifesto CSS */
+
+.main-manifesto{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  padding-top: 7%;
+}
+
+.manifesto-container{
+  padding: 0 10%;
+  background-color: white;
+  width: 100%;
+  padding-bottom: 2%;
+}
+
+.manifesto-title{
+  font-family: "BebasNeue-Bold", sans-serif;
+  font-size: 114pt;
+  line-height: 0.7;
+}
+
+.manifesto-text{
+  font-family: "BebasNeue-Bold", sans-serif;
+  font-size: 43pt;
+  color: #ff5c99;
+  margin: 4% 0 0 0;
+  line-height: 1.2;
+}
